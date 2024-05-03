@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #752626;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  header h1 {
+    color: #752626;
+    margin: 0;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .profile {
+    margin-bottom: 40px;
+  }
+  
+  .profile img {
+    max-width: 100%;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  footer ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  footer ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  footer ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  /* Your existing CSS styles */
+  nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+  }
+  
+  nav ul li {
+      margin-right: 20px;
+  }
+  
+  nav ul li:last-child {
+      margin-right: 0;
+  }
+  
+  nav ul li a {
+      color: #fff;
+      text-decoration: none;
+  }
+  /* Your existing CSS styles */
+  nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+  }
+  
+  nav ul li {
+      margin-right: 20px;
+  }
+  
+  nav ul li:last-child {
+      margin-right: 0;
+  }
+  
+  nav ul li a {
+      color: #fff;
+      text-decoration: none;
+  }
+  
