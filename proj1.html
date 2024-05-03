@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Mapper</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .profiles {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .profile {
+      margin: 20px;
+      text-align: center;
+    }
+
+    .profile img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .summary-button {
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #map {
+      height: 400px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Profile Mapper</h1>
+  <div class="profiles" id="profiles">
+    <!-- Profiles will be dynamically added here -->
+  </div>
+  <div id="map"></div>
+
+  <script>
+    // Sample data
+    const profiles = [
+      {
+        name: 'John Doe',
+        photo: 'john.jpg',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        address: { lat: 51.505, lng: -0.09 },
+      },
+      // Add more profiles
+    ];
+
+    // Function to create profile elements
+    function createProfileElement(profile) {
+      const profileDiv = document.createElement('div');
+      profileDiv.className = 'profile';
+
+      const img = document.createElement('img');
+      img.src = profile.photo;
+      img.alt = profile.name;
+
+      const name = document.createElement('h2');
+      name.textContent = profile.name;
+
+      const description = document.createElement('p');
+      description.textContent = profile.description;
+
+      const summaryButton = document.createElement('button');
+      summaryButton.className = 'summary-button';
+      summaryButton.textContent = 'Summary';
+      summaryButton.onclick = function() {
+        showOnMap(profile.address);
+      };
+
+      profileDiv.appendChild(img);
+      profileDiv.appendChild(name);
+      profileDiv.appendChild(description);
+      profileDiv.appendChild(summaryButton);
+
+      return profileDiv;
+    }
+
+    // Function to display profiles
+    function displayProfiles() {
+      const profilesContainer = document.getElementById('profiles');
+      profiles.forEach(profile => {
+        const profileElement = createProfileElement(profile);
+        profilesContainer.appendChild(profileElement);
+      });
+    }
+
+    // Function to show location on map
+    function showOnMap(address) {
+      const mapDiv = document.getElementById('map');
+
+      // Clear previous map if exists
+      mapDiv.innerHTML = '';
+
+      const map = new google.maps.Map(mapDiv, {
+        center: address,
+        zoom: 13
+      });
+
+      const marker = new google.maps.Marker({
+        position: address,
+        map: map,
+        title: 'Selected Location'
+      });
+    }
+
+    // Initialize
+    displayProfiles();
+  </script>
+  <!-- Google Maps API script -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE"></script>
+</body>
+</html>
